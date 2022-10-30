@@ -1,0 +1,112 @@
+<html>
+    <head>
+        <style>
+            body{
+             /* background-color:black; */
+             /* background-image:linear-gradient(green,yellow); */
+             /* background-image:radial-gradient(yellow,green) ; */
+             background-image: linear-gradient(to left bottom,green,yellow,blue,orange);
+             /* background-image: radial-gradinet(green,yellow,blue,orange); */
+             /* background-image: radial-gradient(yellow,blue); */
+            }
+            #inside{
+                border:15px groove green;
+                border-radius:20px;
+                width:fit-content;
+                margin-left:auto;
+                margin-right: auto;
+                margin-top: 10vh;
+                padding: 20px;
+                background-color: orange;
+            }
+            #display{
+                border:5px solid whitesmoke;
+                border-radius:15px;
+                font-size: 30px;
+                height:80px;
+                width:250px;
+                display: flex;
+                margin-left: auto;
+                margin-right: auto;
+                /* background-color: lightgrey; */
+            }
+            td>input{
+                width:60px;
+                height:60px;
+                border:5px;
+                border-radius: 20px;
+                /* border-top-left-radius:100px;
+                border-top-right-radius:100px; */
+                text-align: center;
+                font-weight: bold;
+                font-size:25px;
+            }
+            #eql{
+                width:123px;
+            }
+            /* #cap{
+                font-size:40px;
+                text-align:center;
+                font-family: sans-serif;
+                text-decoration: underline;
+                color:blue;
+            } */
+        </style>
+        <title>Musharruf Calculator</title>
+    </head>
+    <body>
+        <!-- <p id="cap">Musharruf's Simple Calculator</p> -->
+        <div id="inside">
+                <input type="text" id="display"autofocus><br>
+                <table>
+                    <tr>
+                        <td><input type="button" value="C" onclick="Cf()"></td>
+                        <td><input type="button" value="Del" onclick="del()"></td>
+                        <td><input type="button" value="%" onclick="send('%')"></td>
+                        <td><input type="button" value="/" onclick="send('/')"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" value="1" onclick="send('1')"></td>
+                        <td><input type="button" value="2" onclick="send('2')"></td>
+                        <td><input type="button" value="3" onclick="send('3')"></td>
+                        <td><input type="button" value="*" onclick="send('*')"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" value="4" onclick="send('4')"></td>
+                        <td><input type="button" value="5" onclick="send('5')"></td>
+                        <td><input type="button" value="6" onclick="send('6')"></td>
+                        <td><input type="button" value="+" onclick="send('+')"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" value="7" onclick="send('7')"></td>
+                        <td><input type="button" value="8" onclick="send('8')"></td>
+                        <td><input type="button" value="9" onclick="send('9')"></td>
+                        <td><input type="button" value="-" onclick="send('-')"></td>
+                    </tr>
+                    <tr>
+                        <td><input type="button" value="." onclick="send('.')"></td>
+                        <td><input type="button" value="0" onclick="send('0')"></td>
+                        <td colspan="2"><input type="button" value="=" id="eql" onclick="evaluating()"></td>
+                        
+                    </tr>
+                </table>
+            </div>
+            <script>
+                function send(m){
+                    document.getElementById("display").value+=m;
+                }
+                function Cf(){
+                    document.getElementById('display').value="";
+                }
+                function del(){
+                    var a=document.getElementById('display').value;
+                    rs=a.substring(0,a.length-1);
+                    document.getElementById('display').value=rs;
+                }
+                function evaluating(){
+                    var m=document.getElementById('display').value;
+                    document.getElementById('display').value=eval(m);
+                }
+            </script>
+    </body>
+</html>
